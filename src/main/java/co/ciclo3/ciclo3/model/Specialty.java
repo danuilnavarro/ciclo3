@@ -5,24 +5,21 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name="doctor")
-public class Doctor implements Serializable {
+@Table(name="specialty")
+public class Specialty implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String department;
-    private Integer year;
     private String description;
 
-
-    @ManyToOne
-    @JoinColumn(name="specialtyId")
-    @JsonIgnoreProperties("doctors")
-    private Specialty specialty;
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "specialty")
+    @JsonIgnoreProperties("specialty")
+    public List<Doctor> doctors;
 
     public Integer getId() {
         return id;
@@ -40,22 +37,6 @@ public class Doctor implements Serializable {
         this.name = name;
     }
 
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -64,11 +45,11 @@ public class Doctor implements Serializable {
         this.description = description;
     }
 
-    public Specialty getSpecialty() {
-        return specialty;
+    public List<Doctor> getDoctors() {
+        return doctors;
     }
 
-    public void setSpecialty(Specialty specialty) {
-        this.specialty = specialty;
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
     }
 }
