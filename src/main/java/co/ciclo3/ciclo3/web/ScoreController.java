@@ -2,7 +2,9 @@ package co.ciclo3.ciclo3.web;
 
 
 import co.ciclo3.ciclo3.model.Doctor;
+import co.ciclo3.ciclo3.model.Score;
 import co.ciclo3.ciclo3.service.DoctorService;
+import co.ciclo3.ciclo3.service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,27 +13,27 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/Doctor")
+@RequestMapping("/api/Score")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-public class DoctorController {
+public class ScoreController {
 
     @Autowired
-    private DoctorService doctorService;
+    private ScoreService scoreService;
 
     @GetMapping("/all")
-    public List<Doctor> getDoctores(){
-        return doctorService.getAll();
+    public List<Score> getScores(){
+        return scoreService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Doctor> getDoctor(@PathVariable("id") int id){
-        return doctorService.getDoctor(id);
+    public Optional<Score> getScore(@PathVariable("id") int idScore){
+        return scoreService.getScore(idScore);
     }
 
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Doctor save(@RequestBody Doctor d){
-        return doctorService.save(d);
+    public Score save(@RequestBody Score sc){
+        return scoreService.save(sc);
     }
 }

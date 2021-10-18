@@ -2,7 +2,9 @@ package co.ciclo3.ciclo3.web;
 
 
 import co.ciclo3.ciclo3.model.Doctor;
+import co.ciclo3.ciclo3.model.Reservation;
 import co.ciclo3.ciclo3.service.DoctorService;
+import co.ciclo3.ciclo3.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,27 +13,27 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/Doctor")
+@RequestMapping("/api/Reservation")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-public class DoctorController {
+public class ReservationController {
 
     @Autowired
-    private DoctorService doctorService;
+    private ReservationService reservationService;
 
     @GetMapping("/all")
-    public List<Doctor> getDoctores(){
-        return doctorService.getAll();
+    public List<Reservation> getReservations(){
+        return reservationService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Doctor> getDoctor(@PathVariable("id") int id){
-        return doctorService.getDoctor(id);
+    public Optional<Reservation> getReservation(@PathVariable("id") int idReservation){
+        return reservationService.getReservation(idReservation);
     }
 
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Doctor save(@RequestBody Doctor d){
-        return doctorService.save(d);
+    public Reservation save(@RequestBody Reservation r){
+        return reservationService.save(r);
     }
 }
