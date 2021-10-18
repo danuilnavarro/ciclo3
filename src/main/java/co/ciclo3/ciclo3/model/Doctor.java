@@ -26,11 +26,11 @@ public class Doctor implements Serializable {
     private Specialty specialty;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "doctor")
-    @JsonIgnoreProperties({"doctor","messages"})
+    @JsonIgnoreProperties("doctor")
     private List<Message> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "doctor")
-    @JsonIgnoreProperties({"doctor","reservations"})
+    @JsonIgnoreProperties("doctor")
     private List<Reservation> reservations;
 
 
