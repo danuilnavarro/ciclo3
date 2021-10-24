@@ -1,6 +1,7 @@
 package co.ciclo3.ciclo3.web;
 
 
+import co.ciclo3.ciclo3.model.Doctor;
 import co.ciclo3.ciclo3.model.Specialty;
 import co.ciclo3.ciclo3.service.SpecialtyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,16 @@ public class SpecialtyController {
     @ResponseStatus(HttpStatus.CREATED)
     public Specialty save(@RequestBody Specialty s){
         return specialtyService.save(s);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Specialty update(@RequestBody Specialty s){ return specialtyService.update(s); }
+
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean deleteSpecialty(@PathVariable("id") int id){
+        return specialtyService.deleteSpecialty(id);
     }
 }

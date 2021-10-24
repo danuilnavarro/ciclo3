@@ -33,4 +33,35 @@ public class DoctorService {
             }
         }
     }
+
+    public Doctor update(Doctor d){
+        if(d.getId()!=null){
+            Optional<Doctor> g=doctorRepository.getDoctor(d.getId());
+            if(!g.isEmpty()){
+                if(d.getName()!=null){
+                    g.get().setName(d.getName());
+                }
+                if(d.getDepartment()!=null){
+                    g.get().setDepartment(d.getDepartment());
+                }
+                if(d.getYear()!=null){
+                    g.get().setYear(d.getYear());
+                }
+                if(d.getDescription()!=null){
+                    g.get().setDescription(d.getDescription());
+                }
+                return doctorRepository.save(g.get());
+            }
+        }
+        return d;
+    }
+
+    public boolean deleteDoctor(int id){
+        Optional<Doctor> d=getDoctor(id);
+        if(!d.isEmpty()){
+            doctorRepository.delete(d.get());
+            return true;
+        }
+        return false;
+    }
 }

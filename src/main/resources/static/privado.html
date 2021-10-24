@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Demo</title>
+    <meta name="viewport" content="width=device-width"/>
+    <base href="/"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+
+<div class="container authenticated" >
+
+    <h1>Especialidades</h1>
+
+    <input type="number" id="miId" placeholder="Id">
+    <input type="text" id="name" placeholder="Nombre">
+    <input type="text" id="description" placeholder="Descripcion">
+    <input type="text" id="doctors" placeholder="Doctores">
+
+
+
+    <button onclick="registroSpecialty()">ok</button>
+
+    <button onclick="obtenerItemsSpecialty()">VER</button>
+
+    <button onclick="actualizarSpecialty()">Editar</button>
+
+    <button onclick="borrarSpecialty()">Borrar</button>
+
+    <div>
+
+        <table>
+            <tbody id="miResultado">
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div>
+
+    <h1>Medicos</h1>
+
+    <input type="number" id="miIdDoctor" placeholder="Id">
+    <input type="text" id="nameDoctor" placeholder="Nombre">
+    <input type="text" id="departmentDoctor" placeholder="Departamento">
+    <input type="number" id="yearDoctor" placeholder="Año de Graduacion">
+    <input type="text" id="descriptionDoctor" placeholder="Descripcion">
+    <input type="number" id="specialtyDoctor" placeholder="Especialidad">
+    <input type="number" id="messagesDoctor" placeholder="Mensajes">
+    <input type="number" id="reservationsDoctor" placeholder="Reservaciones">
+
+    <button onclick="registroDoctor()">ok</button>
+
+    <button onclick="obtenerItemsDoctor()">VER</button>
+
+    <button onclick="actualizarDoctor()">Editar</button>
+
+    <button onclick="borrarDoctor()">Borrar</button>
+
+    <div>
+
+        <table>
+            <tbody id="miResultado2">
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div>
+
+    <h1>Clientes</h1>
+
+    <input type="number" id="miIdClient" placeholder="Id">
+    <input type="text" id="nameClient" placeholder="Nombre">
+    <input type="text" id="emailClient" placeholder="Correo electronico">
+    <input type="text" id="passwordClient" placeholder="Contraseña">
+    <input type="number" id="ageClient" placeholder="Edad">
+    <input type="number" id="messagesClient" placeholder="Mensajes">
+    <input type="number" id="reservationsClient" placeholder="Reservaciones">
+
+
+    <button onclick="registroClient()">ok</button>
+
+    <button onclick="obtenerItemsClient()">VER</button>
+
+    <button onclick="actualizarClient()">Editar</button>
+
+    <button onclick="borrarClient()">Borrar</button>
+
+    <div>
+
+        <table>
+            <tbody id="miResultado3">
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div>
+
+    <h1>Mensajes</h1>
+
+    <input type="number" id="miIdMessage" placeholder="Id">
+    <input type="text" id="messagetextMessage" placeholder="Mensaje">
+    <input type="number" id="clientMessage" placeholder="Cliente">
+    <input type="number" id="doctorMessage" placeholder="Doctor">
+
+    <button onclick="registroMessage()">ok</button>
+
+    <button onclick="obtenerItemsMessage()">VER</button>
+
+    <button onclick="actualizarMessage()">Editar</button>
+
+    <button onclick="borrarMessage()">Borrar</button>
+
+    <div>
+
+        <table>
+            <tbody id="miResultado4">
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div>
+
+    <h1>Reservaciones</h1>
+
+    <input type="number" id="miIdReservations" placeholder="Id">
+    <input type="text" id="startDateReservations" placeholder="Nombre">
+    <input type="text" id="devolutionDateReservations" placeholder="Descripcion">
+    <input type="number" id="clientReservations" placeholder="Cliente">
+    <input type="number" id="doctorReservations" placeholder="Doctor">
+    <input type="number" id="scoreReservations" placeholder="Calificacion">
+
+
+
+    <button onclick="registroReservations()">ok</button>
+
+    <button onclick="obtenerItemsReservations()">VER</button>
+
+    <button onclick="actualizarReservations()">Editar</button>
+
+    <button onclick="borrarReservations()">Borrar</button>
+
+    <div>
+
+        <table>
+            <tbody id="miResultado5">
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div>
+
+    <h1>Calificacion</h1>
+
+    <input type="number" id="miIdScore" placeholder="Id">
+    <input type="number" id="scoreScore" placeholder="Calificacion">
+    <input type="text" id="messageScoreScore" placeholder="Mensaje">
+    <input type="number" id="reservationScore" placeholder="Reservacion">
+
+
+
+    <button onclick="registroScore()">ok</button>
+
+    <button onclick="obtenerItemsScore()">VER</button>
+
+    <button onclick="actualizarScore()">Editar</button>
+
+    <button onclick="borrarScore()">Borrar</button>
+
+    <div>
+
+        <table>
+            <tbody id="miResultado6">
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div>
+
+    <h1>Administradores</h1>
+
+    <input type="number" id="miIdAdmin" placeholder="Id">
+    <input type="text" id="nameAdmin" placeholder="Nombre">
+    <input type="text" id="emailAdmin" placeholder="Correo">
+    <input type="text" id="passwordAdmin" placeholder="Contraseña">
+
+
+
+    <button onclick="registroAdmin()">ok</button>
+
+    <button onclick="obtenerItemsAdmin()">VER</button>
+
+    <button onclick="actualizarAdmin()">Editar</button>
+
+    <button onclick="borrarAdmin()">Borrar</button>
+
+    <div>
+
+        <table>
+            <tbody id="miResultado7">
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    $.get("/user", function (data) {
+        $("#user").html(data.name);
+
+    });
+</script>
+
+</html>
